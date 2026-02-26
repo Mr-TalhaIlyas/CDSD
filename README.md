@@ -14,6 +14,31 @@
 
 ## Qualitative Visualizations
 
+### VSVIG (SAHZU) Dataset
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="viz/vsvig/eating_seizure_pat11_029_Sz3P.gif" width="300" /><br/>
+      <sub><b>eating_seizure_pat11_029_Sz3P</b></sub><br/>
+      Labels: <code>Eating</code> · <code>Seizure</code><br/>
+      <a href="https://drive.google.com/drive/folders/1P0gf5QEl14mK8-7pXD0G2goWXv9enZky?usp=sharing">Full Video</a>
+    </td>
+    <td align="center">
+      <img src="viz/vsvig/resting_seizure_pat10_025_Sz1P.gif" width="300" /><br/>
+      <sub><b>resting_seizure_pat10_025_Sz1P</b></sub><br/>
+      Labels: <code>Resting</code> · <code>Seizure</code><br/>
+      <a href="https://drive.google.com/drive/folders/1P0gf5QEl14mK8-7pXD0G2goWXv9enZky?usp=sharing">Full Video</a>
+    </td>
+    <td align="center">
+      <img src="viz/vsvig/using_phone_resting_seizure_pat07_017_Sz1PG.gif" width="300" /><br/>
+      <sub><b>using_phone_resting_seizure_pat07_017_Sz1PG</b></sub><br/>
+      Labels: <code>Using Phone</code> · <code>Resting</code> · <code>Seizure</code><br/>
+      <a href="https://drive.google.com/drive/folders/1P0gf5QEl14mK8-7pXD0G2goWXv9enZky?usp=sharing">Full Video</a>
+    </td>
+  </tr>
+</table>
+
 ### IEEE Dataset
 
 #### Seizure
@@ -56,31 +81,6 @@
       <img src="viz/ieee/sitting_S4_4_35.gif" width="280" /><br/>
       <sub><b>Sitting — sitting_S4_4_35</b></sub><br/>
       <a href="https://drive.google.com/drive/folders/19hLbKzLx_UGB7jZay8Zdzhpe8gQoB5FA?usp=sharing">Full Video</a>
-    </td>
-  </tr>
-</table>
-
-### VSVIG (SAHZU) Dataset
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="viz/vsvig/eating_seizure_pat11_029_Sz3P.gif" width="300" /><br/>
-      <sub><b>eating_seizure_pat11_029_Sz3P</b></sub><br/>
-      Labels: <code>Eating</code> · <code>Seizure</code><br/>
-      <a href="https://drive.google.com/drive/folders/1P0gf5QEl14mK8-7pXD0G2goWXv9enZky?usp=sharing">Full Video</a>
-    </td>
-    <td align="center">
-      <img src="viz/vsvig/resting_seizure_pat10_025_Sz1P.gif" width="300" /><br/>
-      <sub><b>resting_seizure_pat10_025_Sz1P</b></sub><br/>
-      Labels: <code>Resting</code> · <code>Seizure</code><br/>
-      <a href="https://drive.google.com/drive/folders/1P0gf5QEl14mK8-7pXD0G2goWXv9enZky?usp=sharing">Full Video</a>
-    </td>
-    <td align="center">
-      <img src="viz/vsvig/using_phone_resting_seizure_pat07_017_Sz1PG.gif" width="300" /><br/>
-      <sub><b>using_phone_resting_seizure_pat07_017_Sz1PG</b></sub><br/>
-      Labels: <code>Using Phone</code> · <code>Resting</code> · <code>Seizure</code><br/>
-      <a href="https://drive.google.com/drive/folders/1P0gf5QEl14mK8-7pXD0G2goWXv9enZky?usp=sharing">Full Video</a>
     </td>
   </tr>
 </table>
@@ -350,6 +350,7 @@ This project builds on the following open-source works:
 <p align="center">
   <i>For questions or issues, please open a GitHub issue.</i>
 </p>
+
 
 
 
