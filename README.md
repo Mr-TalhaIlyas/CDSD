@@ -2,7 +2,7 @@
 
 <!-- Badges -->
 <p align="center">
-  <img alt="MICCAI 2026" src="https://img.shields.io/badge/MICCAI-2026-blue?style=for-the-badge" />
+  <!--<img alt="MICCAI 2026" src="https://img.shields.io/badge/MICCAI-2026-blue?style=for-the-badge" />-->
   <img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img alt="PyTorch 2.1+" src="https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
   <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
@@ -351,4 +351,5 @@ This project builds on the following open-source works:
 <p align="center">
   <i>For questions or issues, please open a GitHub issue.</i>
 </p>
+
 
