@@ -305,7 +305,7 @@ python prepare_vsvig_dataset.py
 The neurosymbolic model consists of:
 1. **HyperGCN-L encoder** (pre-trained on NTU-RGBD 120) — skeleton → 512-d features
 2. **Concept predictor** (`fc`) — 512-d → 95 clinically grounded concepts (72 spatial + 23 temporal)
-3. **Differentiable logic layers** (CRL) — concepts → 9 action classes via Boolean rules
+3. **Differentiable logic layers** — concepts → 9 action classes via Boolean rules
 
 ```bash
 cd training_scripts
@@ -343,13 +343,13 @@ This project builds on the following open-source works:
 - [SAM3](https://github.com/facebookresearch/sam3) — Segment Anything with Concepts (Meta AI)
 - [Sapiens](https://github.com/facebookresearch/sapiens) — Foundation for Human Vision Models
 - [Qwen3-VL](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) — Vision-Language Model
-- [HyperGCN](https://github.com/) — Hypergraph Convolutional Networks for skeleton action recognition
-- [CRL](https://github.com/) — Concept Reasoning Layers for neurosymbolic learning
+- [HyperGCN](https://github.com/6UOOON9/Hyper-GCN/tree/main/) — Hypergraph Convolutional Networks for skeleton action recognition
 
 ---
 
 <p align="center">
   <i>For questions or issues, please open a GitHub issue.</i>
 </p>
+
 
 
