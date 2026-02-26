@@ -1,0 +1,185 @@
+# Skeleton CRL Training Configuration
+
+# WandB configuration
+use_wandb: True
+wandb_project: SkeletonACLv5
+wandb_entity: null  # Set to your WandB username
+wandb_name: v5exp9_2
+#v7_exp2_adamw_mld64_2way_0.1cont_rmsn_oldBIN # skeleton_acl_xsub_run1_ASM-SGD-noAug-Dual #-fc2-sgd-steplr-aug-78concep
+
+# Work directory
+work_dir: /mnt/ssd/Talha/scal/work_dir/v5exp9_2
+#v7_exp2_adamw_mld64_2way_0.1cont_rmsn_oldBIN # skeleton_crl_ntu_xsub_ASM-noAug-Dual #-fc2-sgd-steplr-aug-78concep
+
+# Phase
+phase: train
+
+# Random seed
+seed: 1
+
+# Logging
+print_log: True
+log_interval: 100
+save_interval: 2
+save_epoch: 30
+eval_interval: 1
+show_topk: [1, 5]
+
+# Model
+# model: model.ctrgcn.Model_lst_6part
+# model_args:
+#   spatial_concepts: 52 # 53 # concepts to be predicted by GCN
+#   temporal_concepts: 26 # 27
+#   num_class: 120
+#   num_point: 25
+#   num_person: 2
+#   graph: graph.ntu_rgb_d.Graph
+#   graph_args:
+#     labeling_mode: spatial
+#   in_channels: 3
+#   drop_out: 0.05
+#   adaptive: True
+#   head: ['ViT-B/32']
+#   k: 0
+
+model: hgcn.hypergcn_large.Model
+model_args:
+  pretrain_chkpt: /data_hdd/talha/nsai/scal/hgcn/hgcn_l_bm_set.pt
+  num_class: 120
+  spatial_concepts: 52 # 53 # concepts to be predicted by GCN
+  temporal_concepts: 26 # 27
+  num_point: 25
+  num_person: 2
+  hyper_joints: 3
+  graph: hgcn.graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'virtual_ensemble'
+
+use_concept_refiner: False
+# CRL-specific parameters
+logic_model:
+  l1_dim: 128
+  l2_dim: 128
+  use_not: True
+  use_skip: True
+  temperature: 1.0
+  l2_weight: 1.0e-6 #5.0e-6
+
+# Feeder
+feeder: feeders.feeder_ntu.Feeder
+num_worker: 24
+
+train_feeder_args:
+  data_path: /data_hdd/talha/nsai/GAP/data/ntu120/NTU120_CSet.npz
+  concepts_csv: /data_hdd/talha/nsai/scal/feeders/ntu_rgbd_spatial_temporal.csv
+  split: train
+  random_choose: False
+  random_shift: False
+  random_move: False
+  random_rot: True
+  window_size: 64
+  p_interval: [0.5, 1]
+  normalization: False
+  debug: False
+  use_mmap: False
+  bone: True
+  vel: True
+  remove_null_concept: True
+
+test_feeder_args:
+  data_path: /data_hdd/talha/nsai/GAP/data/ntu120/NTU120_CSet.npz
+  concepts_csv: /data_hdd/talha/nsai/scal/feeders/ntu_rgbd_spatial_temporal.csv
+  split: test
+  window_size: 64
+  p_interval: [0.95]
+  bone: True
+  vel: True
+  debug: False
+  use_mmap: False
+  remove_null_concept: True
+
+# =============================================================================
+# OPTIMIZATION PARAMETERS 
+# =============================================================================
+
+# GCN optimizer (SGD with momentum)
+base_lr: 0.02
+momentum: 0.9
+nesterov: True
+weight_decay: 0.0005
+step: [110, 120]  # LR decay steps
+lr_decay_rate: 0.1
+
+# CLIP optimizer (AdamW)
+clip_lr: 5.0e-4
+clip_weight_decay: 0.01
+clip_betas: [0.9, 0.98]
+clip_warmup_start_factor: 0.02  # Start at 2% of clip_lr
+clip_min_lr: 1.0e-6
+
+# Concept predictors optimizer (AdamW, lower LR per CRL paper)
+concept_lr: 5.0e-6  # base_lr / 100 as per CRL paper
+concept_weight_decay: 1.0e-2
+concept_min_lr: 1.0e-7
+
+# CRL logic layers optimizer (AdamW)
+crl_lr: 5.0e-5
+crl_min_lr: 1.0e-6
+
+# Training schedule
+batch_size: 164
+test_batch_size: 164
+start_epoch: 0
+num_epoch: 200 # 140
+warm_up_epoch: 5
+warm_up_epoch_logic: 15
+logic_lr_type: cosine
+concept_smoothing: 0.0 # 0.0 for no smoothing
+
+# Loss weights 5.0e-6
+# l2_weight: 1.0e-6  # L2 penalty for CRL sparsity
+contrastive_weight: 0.1  # CLIP alignment loss weight
+
+# Device
+device: [0]
+
+# Weights
+weights: null
+ignore_weights: []
+
+# Save score
+save_score: False
+
+# LoRA args
+lora_args:
+  alpha: 32
+  backbone: ViT-B/32
+  batch_size: 32
+  clip_lr: 0.0005
+  dataset: imagenet
+  dropout_rate: 0.1
+  encoder: both
+  eval_only: false
+  filename: lora_weights
+  gcn_lr: 0.05
+  lr: 0.01
+  n_iters: 500
+  params: [q, k]
+  position: all
+  r: 16
+  root_path: ''
+  save_path: /data_hdd/talha/nsai/GAP/work_dir/lora/
+  seed: 1
+  shots: 16
+
+# Concepts and body parts
+body_parts: ['head', 'hand', 'arm', 'hip', 'leg', 'foot', 'full_body']
+#  ['head', 'hand', 'arm', 'hip', 'leg', 'foot', 'full_body']
+# concepts_len:
+#   head: 6
+#   hand: 11 #14
+#   arm: 11 #14
+#   hip: 8
+#   leg: 9 #14
+#   foot: 7 #14
+#   full_body: 52
