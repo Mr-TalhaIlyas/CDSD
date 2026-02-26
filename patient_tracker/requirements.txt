@@ -1,0 +1,45 @@
+# Seizure Detection Pipeline Requirements
+# ========================================
+
+# Core dependencies
+numpy>=1.24.0
+opencv-python>=4.8.0
+torch>=2.1.0
+torchvision>=0.16.0
+tqdm>=4.65.0
+
+# Ultralytics for SAM3 (version 8.3.237+ required for SAM3 support)
+ultralytics>=8.3.237
+
+# Optional: For analysis utilities
+scipy>=1.10.0
+matplotlib>=3.7.0
+
+# Optional: For better video handling
+# av>=10.0.0
+
+# ===========================================
+# Installation Notes:
+# ===========================================
+# 
+# For CUDA support (recommended for GPU acceleration):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# For CPU only:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#
+# ===========================================
+# Required Model Weights:
+# ===========================================
+#
+# Place the following files in the ./weights/ directory:
+#
+# 1. SAM3 model:
+#    - File: sam3.pt
+#    - Download from: https://huggingface.co/facebook/sam3
+#
+# 2. Sapiens model (TorchScript lite version):
+#    - File: sapiens_1b_goliath_best_goliath_AP_639_torchscript.pt2
+#    - Download from: https://huggingface.co/facebook/sapiens-pose-1b-torchscript
+#    - Alternative: sapiens_1b_coco_best_coco_AP_821_torchscript.pt2 (17 COCO keypoints)
+#
