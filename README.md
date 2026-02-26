@@ -320,23 +320,6 @@ python main_vsvig.py
 python main_supervised_noLogic.py
 ```
 
-Training configs are in [`training_scripts/config/szr/`](training_scripts/config/szr/). Key hyperparameters:
-
-| Parameter | Value |
-|-----------|-------|
-| Batch size | 16 |
-| Epochs | 100 |
-| Logic warm-up epoch | 15 |
-| Window size | 64 frames |
-| Spatial concepts | 72 |
-| Temporal concepts | 23 |
-| Optimizer (GCN) | SGD (lr=1e-4) |
-| Optimizer (Logic) | AdamW (lr=5e-5) |
-
-**Concept definitions** are in [`training_scripts/concepts/szr_cbm.csv`](training_scripts/concepts/szr_cbm.csv) — 95 binary concepts across 7 body-part groups (head, hand, arm, hip, leg, foot, full-body) plus temporal primitives.
-
----
-
 ### Rule Extraction & Interpretability
 
 After training, extract the learned Boolean rules:
@@ -350,36 +333,6 @@ This produces visualizations showing:
 - **Level 1:** Which motor-primitive concepts activated for the input
 - **Level 2:** How concepts were logically composed into rules
 - **Level 3:** How much each rule contributed to the final prediction
-
----
-
-## Concept Bottleneck (95 Concepts)
-
-The model predicts 95 clinically grounded binary concepts organized by body part:
-
-| Body Part | # Concepts | Examples |
-|-----------|-----------|----------|
-| Head | 10 | nod, shake, tilt, hyperextend, rhythmic jerk, versive deviation |
-| Hand | 15 | grasp, wave, fist, bilateral fist, rhythmic clench, dystonic posture |
-| Arm | 15 | raise, extend, tonic posture, rhythmic jerk, bilateral symmetric |
-| Hip | 8 | bend, extend, sit, rotate, sway |
-| Leg | 13 | step, kick, tonic extension, rhythmic jerk, bilateral symmetric |
-| Foot | 10 | step, tap, bilateral plantar, rhythmic movement |
-| Temporal | 24 | motion direction, sequencing, speed, rhythm, bilateral sync |
-
----
-
-## Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@inproceedings{cdsd2026miccai,
-  title     = {A Neurosymbolic Framework for Interpretable Skeleton-Based Seizure Detection via Concept-Driven Logical Reasoning},
-  booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-  year      = {2026}
-}
-```
 
 ---
 
@@ -398,3 +351,4 @@ This project builds on the following open-source works:
 <p align="center">
   <i>For questions or issues, please open a GitHub issue.</i>
 </p>
+
