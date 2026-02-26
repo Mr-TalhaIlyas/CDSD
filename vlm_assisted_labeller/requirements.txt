@@ -1,0 +1,25 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.40.0
+
+# Video and image processing
+opencv-python>=4.8.0
+Pillow>=9.0.0
+
+# Data handling
+numpy>=1.24.0
+pandas>=2.0.0
+openpyxl>=3.1.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# Optional: Flash attention for faster VLM inference
+# flash-attn>=2.0.0  # Uncomment if needed (requires CUDA)
+
+# Optional: For video frame extraction
+# decord>=0.6.0  # Alternative to OpenCV for video reading

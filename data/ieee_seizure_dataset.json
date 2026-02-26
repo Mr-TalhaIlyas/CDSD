@@ -1,0 +1,33 @@
+{
+  "stats": {
+    "total_samples": 730,
+    "normal_samples": 370,
+    "seizure_samples": 360,
+    "max_frames": 131,
+    "total_processed_frames": 93237,
+    "discarded_frames": 0
+  },
+  "label_distribution": {
+    "sleeping": 18905,
+    "resting_or_lying_down": 24265,
+    "reading": 381,
+    "using_phone": 127,
+    "eating": 507,
+    "talking": 384,
+    "sitting_up": 1266,
+    "adjusting_position": 1403,
+    "seizure": 45999
+  },
+  "label_map": {
+    "sleeping": 0,
+    "resting_or_lying_down": 1,
+    "reading": 2,
+    "using_phone": 3,
+    "eating": 4,
+    "talking": 5,
+    "sitting_up": 6,
+    "adjusting_position": 7,
+    "seizure": 8
+  },
+  "skipped_samples": []
+}

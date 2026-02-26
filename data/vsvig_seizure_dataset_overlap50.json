@@ -1,0 +1,34 @@
+{
+  "stats": {
+    "total_videos": 37,
+    "total_clips": 7425,
+    "max_frames": 150,
+    "total_processed_frames": 1101595,
+    "discarded_frames": 0,
+    "clip_duration_sec": 5.0,
+    "overlap": 0.5
+  },
+  "label_distribution": {
+    "sleeping": 42362,
+    "resting_or_lying_down": 277255,
+    "reading": 4530,
+    "using_phone": 301412,
+    "eating": 109274,
+    "talking": 7551,
+    "sitting_up": 104506,
+    "adjusting_position": 48246,
+    "seizure": 206459
+  },
+  "label_map": {
+    "sleeping": 0,
+    "resting_or_lying_down": 1,
+    "reading": 2,
+    "using_phone": 3,
+    "eating": 4,
+    "talking": 5,
+    "sitting_up": 6,
+    "adjusting_position": 7,
+    "seizure": 8
+  },
+  "skipped_clips_count": 31
+}

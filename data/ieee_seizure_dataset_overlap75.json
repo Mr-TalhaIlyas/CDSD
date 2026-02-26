@@ -1,0 +1,37 @@
+{
+  "stats": {
+    "total_samples": 2965,
+    "normal_clips": 370,
+    "seizure_clips": 360,
+    "segments": 122,
+    "overlap": 0.75,
+    "clip_duration": 5.0,
+    "max_gap": 25,
+    "max_frames": 125,
+    "total_processed_frames": 351528,
+    "discarded_frames": 0
+  },
+  "label_distribution": {
+    "sleeping": 67350,
+    "resting_or_lying_down": 89576,
+    "reading": 1338,
+    "using_phone": 494,
+    "eating": 1856,
+    "talking": 1335,
+    "sitting_up": 4496,
+    "adjusting_position": 5188,
+    "seizure": 179895
+  },
+  "label_map": {
+    "sleeping": 0,
+    "resting_or_lying_down": 1,
+    "reading": 2,
+    "using_phone": 3,
+    "eating": 4,
+    "talking": 5,
+    "sitting_up": 6,
+    "adjusting_position": 7,
+    "seizure": 8
+  },
+  "skipped_count": 0
+}
